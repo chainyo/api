@@ -4,9 +4,9 @@ from fastapi import FastAPI
 
 app = FastAPI(title='Consommation énergétique en France en 2019')
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 def read_root():
-    return {'Hello':'World'}
+    return {'Welcome': 'check the documentation for getting informations about the API, here : https://api-energie.herokuapp.com/docs'}
 
 @app.get("/api/nrg", tags=["infos"])
 async def get_infos(
